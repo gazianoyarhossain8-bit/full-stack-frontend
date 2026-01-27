@@ -21,7 +21,7 @@ function UsersCRUD() {
       return
     }
     try {
-      const res = await axios.get("http://loccalhost:5000/api/users",{
+      const res = await axios.get("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users",{
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -52,7 +52,7 @@ function UsersCRUD() {
       return;
     }
 
-    await axios.post("http://loccalhost:5000/api/users", {
+    await axios.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users", {
       name,
       age,
       gmail,
@@ -72,7 +72,7 @@ fetchUser()
 
   //user delete
   const deleteUser = async (id) => {
-    await axios.delete(`http://loccalhost:5000/api/users/${id}`);
+    await axios.delete(`https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users/${id}`);
     setUsers(users.filter((u) => u._id !== id));
   };
 
@@ -86,7 +86,7 @@ fetchUser()
 
   //user update
   const updateUser = async () => {
-    await axios.put(`http://loccalhost:5000/api/users/${selectedId}`, {
+    await axios.put(`https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users/${selectedId}`, {
       name,
       age,
       gmail,

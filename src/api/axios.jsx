@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: "https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app",
 });
 
 api.interceptors.request.use((config) => {
