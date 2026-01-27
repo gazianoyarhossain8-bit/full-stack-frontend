@@ -11,7 +11,7 @@ const Login = () => {
       e.preventDefault()
       try {
         const res = await
-        api.post("/auth/login",{
+        api.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/auth/login",{
           email: email,
           password: password,
         });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import api from '../api/axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -15,7 +15,7 @@ function Register() {
     const handleRegister = async(e) => {
         e.preventDefault()
         try {
-            await api.post("/auth/register",
+            await api.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/auth/register",
                 {
                     name,
                     email,
