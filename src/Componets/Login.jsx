@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import api from '../api/axios'
+import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 const Login = () => { 
@@ -11,7 +11,7 @@ const Login = () => {
       e.preventDefault()
       try {
         const res = await
-        api.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/auth/login",{
+        axios.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/auth/login",{
           email: email,
           password: password,
         });

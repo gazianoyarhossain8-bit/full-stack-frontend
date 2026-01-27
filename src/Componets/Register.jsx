@@ -15,7 +15,7 @@ function Register() {
     const handleRegister = async(e) => {
         e.preventDefault()
         try {
-            await api.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/auth/register",
+            await axios.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/auth/register",
                 {
                     name,
                     email,
