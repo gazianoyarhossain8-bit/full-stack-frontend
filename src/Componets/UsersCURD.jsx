@@ -21,27 +21,13 @@ function UsersCRUD() {
       return
     }
     try {
-      const res = await axios.get("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users",{
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users")
       console.log('profile response', res.data)
       setUsers(res.data)
 
     }catch(err){
       console.log('user fetch error:', err)
-      if(err.response?.status === 401){
-        localStorage.removeItem("token");
-        navigate("/login")
-      }
-
     }
-
-  };
-    useEffect(() => {
-    fetchUser();
-  }, [navigate]);
 
    
   // create user
