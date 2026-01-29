@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function UsersCRUD() {
   const [users, setUsers] = useState([]);
@@ -10,12 +9,20 @@ function UsersCRUD() {
   const [selectedId, setSelectedId] = useState(null);
 
   // get users
+  useEffect(() => {
     const getUser = () => {
     axios
       .get("https://full-stack-backend-rosy.vercel.app/api/users")
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
   }
+    getUser();
+  }, []);
+
+  const fetchUser = async () => {
+    const res = await axios.get("https://full-stack-backend-rosy.vercel.app/api/users");
+    setUsers(res.data);
+  };
 
    
   // create user
