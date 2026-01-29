@@ -12,7 +12,7 @@ function UsersCRUD() {
   // get users
     const getUser = () => {
     axios
-      .get("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users")
+      .get("https://full-stack-backend-rosy.vercel.app/api/users")
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
   }
@@ -26,7 +26,7 @@ function UsersCRUD() {
       return;
     }
 
-    await axios.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users", {
+    await axios.post("https://full-stack-backend-rosy.vercel.app/api/users", {
       name,
       age,
       email,
@@ -46,7 +46,7 @@ function UsersCRUD() {
 
   //user delete
   const deleteUser = async (id) => {
-    await axios.delete(`https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users/${id}`);
+    await axios.delete(`https://full-stack-backend-rosy.vercel.app/api/users/${id}`);
     setUsers(users.filter((u) => u._id !== id));
   };
 
@@ -60,7 +60,7 @@ function UsersCRUD() {
 
   //user update
   const updateUser = async () => {
-    await axios.put(`https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users/${selectedId}`, {
+    await axios.put(`https://full-stack-backend-rosy.vercel.app/api/users/${selectedId}`, {
       name,
       age,
       email,
