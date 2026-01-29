@@ -78,10 +78,9 @@ function UsersCRUD() {
   };
   return (
     
-    <div className="p-6 max-w-4xl mx-auto bg-gray-400 rounded-lg">
+    <div className="bg-gradient-to-r from-gray-400 to-blue-400 h-screen">
       <h1 className="text-3xl font-bold mb-6 text-center">Users CRUD App</h1>
 
-{/* create user*/}
       <div className="border p-4 mb-6 rounded">
         <h2 className="text-xl font-bold mb-3">Create User</h2>
 
@@ -91,7 +90,7 @@ function UsersCRUD() {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-lg"
           />
 
           <input
@@ -99,7 +98,7 @@ function UsersCRUD() {
             placeholder="Age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-lg"
           />
 
           <input
@@ -107,14 +106,15 @@ function UsersCRUD() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border p-2 w-full"
+            className="border p-2 w-full
+            rounded-lg"
           />
           
 
           <button
             onClick={selectedId ? updateUser : createUser}
             className={`px-4 text-white ${
-              selectedId ? "bg-blue-500" : "bg-green-600"
+              selectedId ? "bg-blue-500 rounded-lg"  : "bg-green-600 rounded-lg"
             }`}
           >
             {selectedId ? "Update" : "Create"}
@@ -133,21 +133,21 @@ function UsersCRUD() {
           >
             <div>
               <p><b>Name:</b> {user.name}</p>
-              <p><b>Email:</b> {user.gmail}</p>
+              <p><b>Email:</b> {user.email}</p>
               <p><b>Age:</b> {user.age}</p>
             </div>
 
             <div className="flex gap-2">
               <button
                 onClick={() => editUser(user)}
-                className="bg-yellow-500 text-white px-3 py-1"
+                className="bg-yellow-500 text-white px-3 py-1 rounded-lg"
               >
                 Edit
               </button>
 
               <button
                 onClick={() => deleteUser(user._id)}
-                className="bg-red-500 text-white px-3 py-1"
+                className="bg-red-500 text-white px-3 py-1 rounded-lg"
               >
                 Delete
               </button>
