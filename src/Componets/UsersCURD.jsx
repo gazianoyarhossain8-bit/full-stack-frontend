@@ -6,33 +6,21 @@ function UsersCRUD() {
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-  const [gmail, setGmail] = useState("");
+  const [email, setEmail] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-  const navigate = useNavigate();
 
   // get users
-  
- 
-    const fetchUser = async() =>{
-    const token = localStorage.getItem("token")
-
-    if (!token){
-      navigate("/login");
-      return
-    }
-    try {
-      const res = await axios.get("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users")
-      console.log('profile response', res.data)
-      setUsers(res.data)
-
-    }catch(err){
-      console.log('user fetch error:', err)
-    }
+    const getUser = () => {
+    axios
+      .get("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users")
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.log(err));
+  }
 
    
   // create user
   const createUser = async () => {
-    if (!name || !age || !gmail 
+    if (!name || !age || !email 
     ) {
       alert("All fields required");
       return;
@@ -41,7 +29,7 @@ function UsersCRUD() {
     await axios.post("https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users", {
       name,
       age,
-      gmail,
+      email,
       
       
     });
@@ -50,9 +38,9 @@ function UsersCRUD() {
 
     setName("");
     setAge("");
-    setGmail("");
+    setEmail("");
   
-fetchUser()
+    getUser();
     
   };
 
@@ -67,7 +55,7 @@ fetchUser()
     setSelectedId(user._id);
     setName(user.name);
     setAge(user.age);
-    setGmail(user.gmail);
+    setEmail(user.email);
   };
 
   //user update
@@ -75,7 +63,7 @@ fetchUser()
     await axios.put(`https://full-stack-backend-i3ik1pqi7-anoyars-projects.vercel.app/api/users/${selectedId}`, {
       name,
       age,
-      gmail,
+      email,
       
     });
 
@@ -84,14 +72,10 @@ fetchUser()
     setSelectedId(null);
     setName("");
     setAge("");
-    setGmail("");
+    setEmail("");
 
     fetchUser();
   };
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/login")
-  }
   return (
     
     <div className="p-6 max-w-4xl mx-auto bg-gray-400 rounded-lg">
@@ -121,8 +105,8 @@ fetchUser()
           <input
             type="email"
             placeholder="Email"
-            value={gmail}
-            onChange={(e) => setGmail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="border p-2 w-full"
           />
           
@@ -171,12 +155,6 @@ fetchUser()
            
           </div>
         ))}
-         <button
-  onClick={logout}
-  className="block mx-auto mt-6 bg-black text-white px-6 py-2 rounded"
->
-  LogOut
-</button>
 
       </div>
      
