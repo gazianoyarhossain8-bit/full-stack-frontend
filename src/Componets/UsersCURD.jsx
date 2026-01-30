@@ -9,13 +9,13 @@ function UsersCRUD() {
   const [selectedId, setSelectedId] = useState(null);
 
   // get users
-  useEffect(() => {
+
     const getUser = () => {
-    axios
-      .get("https://full-stack-backend-rosy.vercel.app/api/users")
+    axios.get("https://full-stack-backend-rosy.vercel.app/api/users")
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
-  }
+    };
+useEffect(() => {
     getUser();
   }, []);
 
@@ -32,6 +32,7 @@ function UsersCRUD() {
       alert("All fields required");
       return;
     }
+
 
     await axios.post("https://full-stack-backend-rosy.vercel.app/api/users", {
       name,
