@@ -11,18 +11,17 @@ function UsersCRUD() {
   // get users
 
     const getUser = () => {
-    axios.get("https://full-stack-backend-rosy.vercel.app/api/users")
+    axios.get("https://full-stack-backend-rosy.vercel.app/api/users",{
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
     };
 useEffect(() => {
     getUser();
   }, []);
-
-  const fetchUser = async () => {
-    const res = await axios.get("https://full-stack-backend-rosy.vercel.app/api/users");
-    setUsers(res.data);
-  };
 
    
   // create user

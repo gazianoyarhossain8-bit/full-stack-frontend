@@ -5,7 +5,7 @@ function Home(){
   const startNav = useNavigate();
 
   const handleStart = () => {
-    startNav('/userscurd')
+    startNav('/register');
   }
   return (
     <div className='h-screen flex justify-center items-center bg-gradient-to-r from-green-400 to-red-500 flex-col'>
