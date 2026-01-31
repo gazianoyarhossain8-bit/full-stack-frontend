@@ -86,7 +86,7 @@ useEffect(() => {
   };
   return (
     
-    <div className="bg-gradient-to-r from-gray-400 to-blue-400 h-screen">
+    <div className="bg-gradient-to-r from-gray-400 to-blue-400 main-h-screen-screen rounded-xl">
       <h1 className="text-3xl font-bold mb-6 text-center">Users CRUD App</h1>
 
       <div className="border p-4 mb-6 rounded">
