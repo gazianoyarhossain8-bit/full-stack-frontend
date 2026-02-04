@@ -7,26 +7,33 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate()
 
-    const handleLogin = async(e) =>{
-      e.preventDefault()
+    const handleLogin = async (e) => {
+      e.preventDefault();
+    
       try {
-        const res = await
-        axios.post("https://full-stack-backend-rosy.vercel.app/auth/login",{
-          email: email,
-          password: password,
-        });
-
-//token save
-console.log("login response", res.data)
-        localStorage.setItem("token",
-          res.data.token
+        const res = await axios.post(
+          "https://full-stack-backend-rosy.vercel.app/auth/login",
+          {
+            email: email.trim(),
+            password: password.trim(),
+          },
+          {
+            timeout: 15000,
+            headers: { "Content-Type": "application/json" },
+          }
         );
+    
+        localStorage.setItem("token", res.data.token);
         navigate("/userscurd");
       } catch (err) {
-        alert(err.response?.data?.message ||
-          "Login failed")
+        alert(
+          err.response?.data?.message ||
+          err.message ||
+          "Network / Server error"
+        );
       }
     };
+    
   return (
   
     <form onSubmit={handleLogin} className='flex flex-col gap-4
