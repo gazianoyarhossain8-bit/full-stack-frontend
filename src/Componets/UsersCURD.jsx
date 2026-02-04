@@ -12,9 +12,7 @@ function UsersCRUD() {
 
     const getUser = () => {
     axios.get("https://full-stack-backend-rosy.vercel.app/api/users",{
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      },
+      withCredentials: true,
     })
       .then((res) => setUsers(res.data))
       .catch((err) => console.log(err));
