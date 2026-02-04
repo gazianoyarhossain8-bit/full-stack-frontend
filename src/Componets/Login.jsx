@@ -29,7 +29,8 @@ const Login = () => {
         alert(
           err.response?.data?.message ||
           err.message ||
-          "Network / Server error"
+          "Network / Server error" + " " + 
+          "Please try again later"
         );
       }
     };
