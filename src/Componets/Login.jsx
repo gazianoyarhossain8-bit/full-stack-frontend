@@ -1,6 +1,9 @@
 import { useState } from 'react'
-import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
+
 
 const Login = () => { 
     const [email, setEmail] = useState("");
@@ -18,18 +21,17 @@ const Login = () => {
             password: password.trim(),
           },
           {
+            withCredentials: true,
             timeout: 15000,
             headers: { "Content-Type": "application/json" },
           }
         );
-    
-        localStorage.setItem("token", res.data.token);
+        alert(res.data.message || "Login successful");
         navigate("/userscurd");
       } catch (err) {
         alert(
           err.response?.data?.message ||
           err.message ||
-          "Network / Server error" + " " + 
           "Please try again later"
         );
       }
