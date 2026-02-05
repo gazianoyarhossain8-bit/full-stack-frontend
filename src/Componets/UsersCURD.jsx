@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function UsersCRUD() {
   const [users, setUsers] = useState([]);
@@ -79,7 +80,7 @@ useEffect(() => {
     setAge("");
     setEmail("");
 
-    fetchUser();
+    getUser();
   };
   return (
     
