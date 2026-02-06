@@ -84,13 +84,13 @@ useEffect(() => {
   };
   return (
     
-    <div className="bg-gradient-to-r from-gray-400 to-blue-400 main-h-screen-screen rounded-xl">
+    <div className="bg-gradient-to-r from-gray-400 to-blue-400 main-h-screen rounded-xl">
       <h1 className="text-3xl font-bold mb-6 text-center">Users CRUD App</h1>
 
       <div className="border p-4 mb-6 rounded">
         <h2 className="text-xl font-bold mb-3">Create User</h2>
 
-        <div className="flex gap-3">
+        <div className="flex flex-col md:flex-row gap-3">
           <input
             type="text"
             placeholder="Name"
@@ -119,8 +119,8 @@ useEffect(() => {
 
           <button
             onClick={selectedId ? updateUser : createUser}
-            className={`px-4 text-white ${
-              selectedId ? "bg-blue-500 rounded-lg"  : "bg-green-600 rounded-lg"
+            className={`px-4 py-2 text-white w-full md:w-auto ${
+              selectedId ? "bg-blue-500 rounded-lg" : "bg-green-600 rounded-lg"
             }`}
           >
             {selectedId ? "Update" : "Create"}
@@ -135,8 +135,7 @@ useEffect(() => {
         {users.map((user) => (
           <div
             key={user._id}
-            className="border p-4 mb-3 rounded flex justify-between items-center"
-          >
+            className="border p-4 mb-3 rounded flex flex-col md:flex-row md:justify-between md:items-center gap-2" >
             <div>
               <p><b>Name:</b> {user.name}</p>
               <p><b>Email:</b> {user.email}</p>
