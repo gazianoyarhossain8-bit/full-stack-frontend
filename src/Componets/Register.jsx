@@ -30,21 +30,21 @@ function Register() {
             };
 
   return (
-    <form onSubmit={handleRegister}>
-        <h1>Register</h1>
-        <label>Name
-        <input type='text'onChange={(e) => setName(e.target.value)} className='bg-white shadow-lg'/>
+    <form onSubmit={handleRegister} className='flex flex-col md:flex-row gap-5 shadow-xl items-center rounded-xl w-96 h-96 block mx-auto'>
+        <h1 className='block mx-auto bg-yellow-500 w-24 rounded-xl text-center'>Register</h1>
+        <label className=' flex gap-3'>Name:
+        <input type='text' placeholder='name'onChange={(e) => setName(e.target.value)} className='shadow-lg rounded-md'/>
 
         </label>
-        <label>Email
+        <label className=' flex gap-3'>Email:
         
-        <input type='email'placeholder='email..'onChange={(e) => setEmail(e.target.value)}/>
+        <input type='email'placeholder='email..'onChange={(e) => setEmail(e.target.value)} className='shadow-lg rounded-md'/>
         </label>
-        <label>Password
-        <input type='password'placeholder='password..'onChange={(e) => setPassword(e.target.value)}/>
+        <label className=' flex gap-3'>Password:
+        <input type='password'placeholder='password..'onChange={(e) => setPassword(e.target.value)} className='shadow-lg rounded-md'/>
         </label>
-        <button>Register</button><br/>
-        <button onClick={handleRoute}>ragister to login</button>
+        <button className='bg-blue-600 rounded-xl w-20 mx-auto'>Register</button><br/>
+        <button onClick={handleRoute} className='bg-green-700 rounded-xl w-52 mx-auto h-12'>ragister to login</button>
     </form>
   )
 }
