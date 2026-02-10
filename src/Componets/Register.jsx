@@ -30,7 +30,7 @@ function Register() {
             };
 
   return (
-    <form onSubmit={handleRegister} className='flex flex-col md:flex-row gap-5 shadow-xl items-center rounded-xl w-96 h-96 block mx-auto'>
+    <form onSubmit={handleRegister} className='grid grid-rows-7 items-center justify-center shadow-xl w-96 mx-auto '>
         <h1 className='block mx-auto bg-yellow-500 w-24 rounded-xl text-center'>Register</h1>
         <label className=' flex gap-3'>Name:
         <input type='text' placeholder='name'onChange={(e) => setName(e.target.value)} className='shadow-lg rounded-md'/>
