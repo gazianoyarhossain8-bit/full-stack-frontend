@@ -15,7 +15,7 @@ const Login = () => {
     
       try {
         const res = await axios.post(
-          "https://full-stack-backend-rosy.vercel.app/auth/login",
+          "https://full-stack-backend-1iv8.onrender.com/auth/login",
           {
             email: email.trim(),
             password: password.trim(),
