@@ -12,7 +12,7 @@ function UsersCRUD() {
   // get users
 
     const getUser = () => {
-    axios.get("https://full-stack-backend-rosy.vercel.app/api/users",{
+    axios.get("https://full-stack-backend-1iv8.onrender.com/api/users",{
       withCredentials: true,
     })
       .then((res) => setUsers(res.data))
@@ -32,7 +32,7 @@ useEffect(() => {
     }
 
 
-    await axios.post("https://full-stack-backend-rosy.vercel.app/api/users", {
+    await axios.post("https://full-stack-backend-1iv8.onrender.com/api/users", {
       name,
       age,
       email,
@@ -52,7 +52,7 @@ useEffect(() => {
 
   //user delete
   const deleteUser = async (id) => {
-    await axios.delete(`https://full-stack-backend-rosy.vercel.app/api/users/${id}`);
+    await axios.delete(`https://full-stack-backend-1iv8.onrender.com/api/users/${id}`);
     setUsers(users.filter((u) => u._id !== id));
   };
 
@@ -66,7 +66,7 @@ useEffect(() => {
 
   //user update
   const updateUser = async () => {
-    await axios.put(`https://full-stack-backend-rosy.vercel.app/api/users/${selectedId}`, {
+    await axios.put(`https://full-stack-backend-1iv8.onrender.com/api/users/${selectedId}`, {
       name,
       age,
       email,
